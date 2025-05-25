@@ -16,11 +16,11 @@ prophet_df['weekday'] = pd.Categorical(prophet_df['weekday'], categories=['Monda
 
 categories = df['category'].unique()
 
-st.title("네이버 쇼핑 인사이트 분석")
+st.title("📊 네이버 쇼핑 인사이트 분석 대시보드")
 
 # -------------------------
 # 1. 요일별 클릭량 시각화
-st.header("카테고리별 요일 평균 클릭량")
+st.header("📅 요일별 클릭량 분석")
 weekday_categories = st.multiselect("\[요일별] 카테고리를 선택하세요", categories, default=categories[:1], key="weekday")
 
 col1, col2 = st.columns(2)
@@ -41,7 +41,7 @@ with col2:
 
 # -------------------------
 # 2. 월별 클릭량 시각화
-st.header("카테고리별 월 평균 클릭량")
+st.header("📆 월별 클릭량 분석")
 month_categories = st.multiselect("\[월별] 카테고리를 선택하세요", categories, default=categories[:1], key="month")
 
 col3, col4 = st.columns(2)
@@ -62,7 +62,7 @@ with col4:
 
 # -------------------------
 # 3. Prophet 분해 시각화
-st.header("Prophet 시계열 분해 결과")
+st.header("🔍 Prophet 시계열 분해 결과")
 prophet_categories = st.multiselect("\[Prophet] 카테고리를 선택하세요", categories, default=categories[:1], key="prophet")
 
 prophet_filtered = prophet_df[prophet_df['category'].isin(prophet_categories)]
